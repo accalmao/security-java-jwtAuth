@@ -1,0 +1,19 @@
+
+version: '3.1'
+
+services:
+  mysql_db:
+    image: mysql:8
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    container_name: security_db
+    environment:
+      MYSQL_ROOT_PASSWORD: dev
+      MYSQL_DATABASE: dev
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: dev
+    volumes:
+      - dbdata:/var/lib/mysql/
+volumes:
+  dbdata:
